@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-# Gabriela-Rodrigues
-=======
 # Meu Projeto
-src/analyze_logs.py
+
+O projeto contém o script `src/analyze_logs.py` para análise de logs.
