@@ -1,29 +1,25 @@
 #!/bin/bash
-<<<<<<< HEAD
+
 =======
-<<<<<<< HEAD
->>>>>>> 51f2ee7acf2db38d64a9b673f33296d7e4b2c630
+
 set -o pipefail
 
 # ---------------- VALIDAÇÃO ----------------
 if [ $# -lt 1 ]; then
     echo "Uso: ./analyzer.sh <ficheiro> [user=USER] [action=TIPO]"
-<<<<<<< HEAD
 =======
 =======
 
 if [ $# -lt 1 ]; then
     echo "Uso: ./analyze_logs.sh <arquivo_de_log>"
->>>>>>> 55261279736b9d92a3b146397125f050b320a23b
->>>>>>> 51f2ee7acf2db38d64a9b673f33296d7e4b2c630
+
     exit 1
 fi
 
 file="$1"
-<<<<<<< HEAD
+
 =======
-<<<<<<< HEAD
->>>>>>> 51f2ee7acf2db38d64a9b673f33296d7e4b2c630
+
 user_filter=""
 action_filter=""
 
@@ -40,21 +36,12 @@ for arg in "$@"; do
 done
 
 # ---------------- VERIFICAR FICHEIRO ----------------
-<<<<<<< HEAD
-=======
-=======
 
->>>>>>> 55261279736b9d92a3b146397125f050b320a23b
->>>>>>> 51f2ee7acf2db38d64a9b673f33296d7e4b2c630
 if [ ! -f "$file" ]; then
     echo "Ficheiro não existe"
     exit 1
 fi
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 51f2ee7acf2db38d64a9b673f33296d7e4b2c630
 # ---------------- FILTRAR DADOS ----------------
 filter_data() {
     awk -v user_filter="$user_filter" -v action_filter="$action_filter" '
@@ -196,13 +183,10 @@ while true; do
         *) echo "Opção inválida" ;;
     esac
 done
-<<<<<<< HEAD
 
 
 
 
-
-=======
 =======
 total_linhas() {
     wc -l < "$file"
@@ -304,5 +288,4 @@ do
      ;;
   esac
 done
->>>>>>> 55261279736b9d92a3b146397125f050b320a23b
->>>>>>> 51f2ee7acf2db38d64a9b673f33296d7e4b2c630
+
