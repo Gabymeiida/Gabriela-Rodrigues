@@ -1,14 +1,11 @@
 #!/bin/bash
 
-=======
 
 set -o pipefail
 
 # ---------------- VALIDAÇÃO ----------------
 if [ $# -lt 1 ]; then
     echo "Uso: ./analyzer.sh <ficheiro> [user=USER] [action=TIPO]"
-=======
-=======
 
 if [ $# -lt 1 ]; then
     echo "Uso: ./analyze_logs.sh <arquivo_de_log>"
@@ -18,7 +15,6 @@ fi
 
 file="$1"
 
-=======
 
 user_filter=""
 action_filter=""
@@ -115,9 +111,8 @@ downloads() {
 
 # ---------------- RELATÓRIO ----------------
 mostrar_relatorio() {
-    echo "================================="
+
     echo "        RELATÓRIO FINAL"
-    echo "================================="
     echo "Total linhas: $(total_linhas)"
     echo "Erros: $(total_erros)"
     echo "Uploads: $(uploads)"
@@ -183,109 +178,3 @@ while true; do
         *) echo "Opção inválida" ;;
     esac
 done
-
-
-
-
-=======
-total_linhas() {
-    wc -l < "$file"
-}
-
-total_erros() {
-    grep -i "error" "$file" | wc -l
-}
-
-ips_unicos() {
-    awk '{print $2}' "$file" | sort | uniq | wc -l
-}
-
-top_ip() {
-    awk '{print $2}' "$file" | sort | uniq -c | sort -nr | head -1 | awk '{print $2}'
-}
-
-downloads() {
-    grep -i "download" "$file" | wc -l
-}
-
-contar_erros_loop() {
-    errors=0
-    while IFS= read -r line
-    do
-        case "$line" in
-     *ERROR*) ((errors++)) ;;
-        esac
-    done < "$file"
-
-    echo "$errors"
-}
-
-mostrar_relatorio() {
-    echo "RELATÓRIO"
-    echo "Total linhas: $(total_linhas)"
-    echo "Total erros: $(total_erros)"
-    echo "IPs únicos: $(ips_unicos)"
-    echo "Top IP: $(top_ip)"
-    echo "Downloads: $(downloads)"
-    echo "Erros (loop): $(contar_erros_loop)"
-}
-
-guardar_relatorio() {
-    {
-        echo "RELATÓRIO"
-        echo "Total linhas: $(total_linhas)"
-        echo "Total erros: $(total_erros)"
-        echo "IPs únicos: $(ips_unicos)"
-        echo "Top IP: $(top_ip)"
-        echo "Downloads: $(downloads)"
-    } > relatorio.txt
-
-    echo "Relatório criado: relatorio.txt"
-}
-
-mostrar_relatorio
-
-# MENU
-while true
-do
-  echo ""
-  echo "MENU"
-  echo "1 - Total linhas"
-  echo "2 - Total erros"
-  echo "3 - IPs únicos"
-  echo "4 - Top IP"
-  echo "5 - Downloads"
-  echo "6 - Sair"
-  echo "7 - Gerar relatório para ficheiro"
-
-  read option
-
-  case $option in
-   1)
-     total_linhas
-     ;;
-   2)
-     total_erros
-     ;;
-   3)
-     ips_unicos
-     ;;
-   4) 
-     top_ip
-     ;;
-   5)
-     downloads
-     ;;
-   6)
-     exit 0
-     ;;
-   7)
-     echo "Gerando relatório..."
-     guardar_relatorio
-     ;;
-   *)
-     echo "Opção inválida"
-     ;;
-  esac
-done
-
