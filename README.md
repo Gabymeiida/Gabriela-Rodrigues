@@ -69,10 +69,12 @@ $3 → ação
 
 O script só mantém linhas que correspondem aos filtros fornecidos.
 
-🖥️ Como Executar
-1️⃣ Tornar o script executável
-bash
+## 🖥️ Como Executar
+
+1️⃣ **Tornar o script executável**
+```bash
 chmod +x analyzer.sh
+
 2️⃣ Executar com um ficheiro de log
 bash
 ./analyzer.sh logs.txt
