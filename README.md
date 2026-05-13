@@ -1,4 +1,4 @@
-Log Analyzer (Bash Script)
+🔍📄 Log Analyzer (Bash Script)
 
 📌 Descrição do Projeto
 O Log Analyzer é um script em Bash desenvolvido para analisar ficheiros de log de forma rápida, automática e flexível.
