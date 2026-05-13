@@ -146,4 +146,4 @@ Scripting em Bash
 
 👩‍💻 Autora
 Gabriela  
-Projeto desenvolvido no âmbito do módulo de Scripting.
+Projeto desenvolvido no âmbito do módulo de Linguagens de scripting e linhas de comando.
